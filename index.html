@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ka" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ხმელი წიფელი — ჩარგალის მემკვიდრეობა</title>
+<meta name="description" content="ვაჟა-ფშაველას „ხმელი წიფელი“ — მრავალენოვანი ნარატიული გამოცემა (KA / EN / AR) · Chargali Legacy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Georgian:wght@400;700&family=Noto+Serif+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e5; --card:#fffdf8; --ink:#22291f; --muted:#5f6a58;
+  --forest:#16241b; --forest2:#22382a; --gold:#b08d4f; --line:#e0d6c0; --soft:#efe8d6;
+  --fs:1;
+}
+html[data-theme="night"]{
+  --bg:#121814; --card:#1a221c; --ink:#e8e4d8; --muted:#a4ab9d;
+  --forest:#0d1510; --forest2:#1a2a20; --gold:#c8a568; --line:#2b392d; --soft:#1e2821;
+}
+html[lang="ar"]{
+  font-family:"Noto Naskh Arabic",Georgia,serif;
+}
+html[lang="ar"] body,
+html[lang="ar"] .btn,
+html[lang="ar"] .brand,
+html[lang="ar"] .kicker,
+html[lang="ar"] .subtitle,
+html[lang="ar"] .chip,
+html[lang="ar"] .cta,
+html[lang="ar"] .panel .small,
+html[lang="ar"] .age-b,
+html[lang="ar"] .toc-n,
+html[lang="ar"] .scene-h .n,
+html[lang="ar"] figcaption,
+html[lang="ar"] .poem .lbl,
+html[lang="ar"] .closing .sig,
+html[lang="ar"] footer,
+html[lang="ar"] .art::after,
+html[lang="ar"] .art .glyph,
+html[lang="ar"] .art .bignum{
+  font-family:"Noto Naskh Arabic","Noto Sans Arabic",serif;
+}
+html[lang="ar"] .scene p{text-align:right}
+html[lang="ar"] .scene p.drop::first-letter{float:none; font-size:inherit; line-height:inherit; padding:0; color:inherit; font-weight:inherit}
+html[lang="ar"] .scene p.q{border-left:none; border-right:3px solid var(--line); padding-left:0; padding-right:14px}
+html[lang="ar"] .toc-a:hover{transform:translateX(-2px)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Serif Georgian",Georgia,"Times New Roman",serif;
+  font-size:calc(17px * var(--fs)); line-height:1.85;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+
+/* progress + topbar */
+.prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--gold); z-index:90}
+.top{
+  position:sticky; top:0; z-index:80; display:flex; flex-wrap:wrap; gap:10px;
+  align-items:center; justify-content:space-between; padding:9px 18px;
+  background:var(--forest); color:#f3eddd; border-bottom:2px solid var(--gold);
+}
+.brand{font-family:"Noto Sans Georgian",sans-serif; font-size:11.5px; letter-spacing:2px; color:#dcc79a; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.brand b{color:#fff; font-weight:700; letter-spacing:1.2px}
+.brand a{color:#e6cf9d; text-decoration:none; border-bottom:1px dashed rgba(230,207,157,.45)}
+.brand a:hover{color:#fff; border-bottom-style:solid}
+
+.tools{display:flex; gap:6px; align-items:center; flex-wrap:wrap}
+.lang-group{display:inline-flex; border:1px solid rgba(255,255,255,.35); border-radius:7px; overflow:hidden; margin-right:2px}
+.lang-btn{
+  background:transparent; color:#f3eddd; border:0; padding:5px 9px; cursor:pointer;
+  font-family:"Noto Sans Georgian",sans-serif; font-size:11.5px; font-weight:700; transition:.18s;
+}
+.lang-btn + .lang-btn{border-left:1px solid rgba(255,255,255,.25)}
+.lang-btn[aria-pressed="true"]{background:var(--gold); color:#1b1405}
+.lang-btn:hover:not([aria-pressed="true"]){background:rgba(255,255,255,.12)}
+
+.btn{
+  background:transparent; color:#f3eddd; border:1px solid rgba(255,255,255,.42);
+  border-radius:7px; padding:5px 10px; cursor:pointer; font-family:"Noto Sans Georgian",sans-serif;
+  font-size:12px; line-height:1.5; transition:.2s; text-decoration:none; display:inline-block;
+}
+.btn:hover,.btn:focus-visible{background:var(--gold); border-color:var(--gold); color:#1b1405; outline:none}
+
+/* hero */
+.hero{
+  position:relative; overflow:hidden; color:#f6f0e2; text-align:center;
+  padding:66px 20px 54px; border-bottom:3px solid var(--gold);
+  background:radial-gradient(circle at 22% -10%, #2f4a35 0%, #1b2c22 45%, #101a12 100%);
+}
+.hero::before{
+  content:""; position:absolute; inset:0; opacity:.55;
+  background:repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 52px);
+}
+.hero::after{
+  content:""; position:absolute; left:50%; bottom:-120px; width:520px; height:260px; transform:translateX(-50%);
+  background:radial-gradient(ellipse at center, rgba(176,141,79,.22), transparent 70%);
+}
+.hero>*{position:relative; z-index:1}
+.kicker{font-family:"Noto Sans Georgian",sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#c9ad74; margin:0}
+h1{font-size:clamp(34px,7vw,64px); line-height:1.12; margin:16px 0 10px; letter-spacing:-.4px; font-weight:700}
+.subtitle{color:#d9c9a4; font-size:clamp(14px,2.3vw,18px); margin:0 0 18px; font-family:"Noto Sans Georgian",sans-serif; letter-spacing:.8px}
+.hero p.lead{max-width:650px; margin:0 auto 24px; font-size:1em; color:#e6e0cf}
+.chips{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:0 0 26px}
+.chip{font-family:"Noto Sans Georgian",sans-serif; font-size:11.5px; letter-spacing:.4px; padding:5px 12px; border-radius:99px; border:1px solid rgba(220,199,154,.38); color:#e9dfc6}
+.cta{display:inline-block; padding:11px 22px; border-radius:9px; font-family:"Noto Sans Georgian",sans-serif; font-size:13.5px; font-weight:700; text-decoration:none; transition:.2s; margin:4px}
+.cta.primary{background:var(--gold); color:#1e1707}
+.cta.primary:hover{background:#cfa963}
+.cta.ghost{border:1px solid rgba(255,255,255,.5); color:#f6f0e2}
+.cta.ghost:hover{background:rgba(255,255,255,.12)}
+
+/* layout */
+.wrap{max-width:860px; margin:0 auto; padding:0 20px}
+.panel{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; margin:30px auto}
+.panel h2{font-size:1.25rem; margin:0 0 4px}
+.panel .small{color:var(--muted); font-size:.82em; font-family:"Noto Sans Georgian",sans-serif; margin:0}
+
+/* narrative card */
+.narrative-box{
+  background:linear-gradient(145deg, var(--soft), var(--card));
+  border-left:4px solid var(--gold); border-radius:12px; padding:16px 18px; margin-top:14px;
+}
+html[lang="ar"] .narrative-box{border-left:none; border-right:4px solid var(--gold)}
+.narrative-box p{margin:0 0 10px}
+.narrative-box p:last-child{margin-bottom:0}
+
+/* age */
+.age-row{display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 12px}
+.age-b{
+  width:40px; height:36px; border-radius:8px; cursor:pointer;
+  background:var(--soft); color:var(--ink); border:1px solid var(--line);
+  font-family:"Noto Sans Georgian",sans-serif; font-size:13px; transition:.15s;
+}
+.age-b:hover{border-color:var(--gold)}
+.age-b[aria-pressed="true"]{background:var(--forest2); color:#f2ecdb; border-color:var(--forest2)}
+.age-note{display:flex; gap:12px; align-items:flex-start; background:var(--soft); border-radius:10px; padding:12px 14px; font-size:.9em}
+.age-note .dot{margin-top:.55em; width:8px; height:8px; border-radius:50%; background:var(--gold); flex:none}
+
+/* toc */
+.toc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; margin-top:14px}
+.toc-a{
+  display:flex; gap:10px; align-items:baseline; text-decoration:none; color:var(--ink);
+  padding:9px 11px; border:1px solid var(--line); border-radius:10px; font-size:.86em; transition:.18s;
+}
+.toc-a:hover{border-color:var(--gold); background:var(--soft); transform:translateX(2px)}
+.toc-a.active{border-color:var(--gold); background:var(--soft)}
+.toc-n{font-family:"Noto Sans Georgian",sans-serif; font-size:11px; font-weight:700; color:var(--gold); min-width:18px}
+
+/* scenes */
+.scene{max-width:760px; margin:0 auto 52px; padding:0 20px; scroll-margin-top:74px}
+.scene-h{display:flex; align-items:baseline; gap:12px; margin:0 0 16px; flex-wrap:wrap}
+.scene-h .n{font-family:"Noto Sans Georgian",sans-serif; font-size:11.5px; font-weight:700; letter-spacing:2.4px; color:var(--gold)}
+.scene-h h2{font-size:clamp(21px,4vw,29px); line-height:1.25; margin:0; letter-spacing:-.2px}
+
+.art{
+  position:relative; aspect-ratio:16/10; margin:0 0 14px; border-radius:16px; overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(155deg, hsl(var(--h,150) 22% 21%), hsl(var(--h,150) 26% 34%));
+  display:flex; align-items:center; justify-content:center;
+}
+.art img{
+  width:100%; height:100%; object-fit:cover; filter:contrast(1.04) saturate(.88);
+}
+.art .overlay-badge{
+  position:absolute; top:12px; left:12px; background:rgba(16,24,18,.72); color:#f3eddd;
+  border:1px solid rgba(201,173,116,.45); border-radius:8px; padding:4px 10px;
+  font-size:11px; letter-spacing:.8px; backdrop-filter:blur(4px);
+}
+html[lang="ar"] .art .overlay-badge{left:auto; right:12px}
+.art .bignum{
+  position:absolute; bottom:10px; right:14px; font-weight:700; font-size:44px; line-height:1;
+  color:rgba(255,255,255,.82); text-shadow:0 2px 12px rgba(0,0,0,.65);
+}
+html[lang="ar"] .art .bignum{right:auto; left:14px}
+figcaption{font-family:"Noto Sans Georgian",sans-serif; font-size:11.5px; color:var(--muted); text-align:center; margin:0 0 20px}
+
+.scene p{margin:0 0 15px; text-align:justify; hyphens:auto}
+.scene p.drop::first-letter{
+  float:left; font-size:3.15em; line-height:.84; padding:6px 9px 0 0; color:var(--gold); font-weight:700;
+}
+.scene p.q{color:var(--muted); border-left:3px solid var(--line); padding-left:14px; font-style:italic}
+
+/* poem */
+.poem{max-width:760px; margin:0 auto 52px; padding:0 20px; scroll-margin-top:74px}
+.poem .card{
+  background:linear-gradient(160deg,#1c2e22,#131f18); color:#f2ebd9;
+  border:1px solid #2d4233; border-radius:18px; padding:38px 26px; text-align:center;
+  box-shadow:0 18px 50px -30px rgba(0,0,0,.7);
+}
+.poem .lbl{font-family:"Noto Sans Georgian",sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#c9ad74; margin:0 0 10px}
+.poem h2{font-size:clamp(19px,3.4vw,25px); margin:0 0 6px; line-height:1.35}
+.poem .rule{width:56px; height:2px; background:var(--gold); margin:0 auto 26px; opacity:.85}
+.stanza{margin:0 0 22px; font-size:1.03em; line-height:2}
+.stanza span{display:block}
+.stanza:last-child{margin-bottom:0}
+
+/* closing */
+.closing{max-width:700px; margin:0 auto 40px; padding:0 20px; text-align:center}
+.closing .line{font-size:clamp(19px,3.4vw,24px); line-height:1.6; color:var(--forest2)}
+html[data-theme="night"] .closing .line{color:var(--gold)}
+.closing .sig{font-family:"Noto Sans Georgian",sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:10px}
+
+footer{border-top:1px solid var(--line); padding:28px 20px 46px; text-align:center; color:var(--muted); font-family:"Noto Sans Georgian",sans-serif; font-size:12px; line-height:1.95}
+footer a{color:var(--gold); text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+.totop{
+  position:fixed; right:18px; bottom:18px; width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer;
+  font-size:16px; display:none; place-items:center; z-index:70; box-shadow:0 8px 24px -12px rgba(0,0,0,.5);
+}
+html[lang="ar"] .totop{right:auto; left:18px}
+.totop.show{display:grid}
+
+.reveal{opacity:0; transform:translateY(16px); transition:opacity .75s ease, transform .75s ease}
+.reveal.in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1; transform:none; transition:none}
+}
+@media (max-width:620px){
+  .hero{padding:48px 16px 42px}
+  .scene p{text-align:left}
+  html[lang="ar"] .scene p{text-align:right}
+  .panel{padding:18px}
+  .brand{font-size:10px; letter-spacing:1.2px}
+  .art .bignum{font-size:32px}
+}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+
+<header class="top">
+  <div class="brand">
+    <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">Chargali Legacy</a>
+    <span>·</span>
+    <b id="brandTitle">ხმელი წიფელი</b>
+    <span>·</span>
+    <span id="brandAuthor">ვაჟა-ფშაველა</span>
+  </div>
+  <div class="tools">
+    <div class="lang-group" role="group" aria-label="Language / ენა / اللغة">
+      <button class="lang-btn" data-lang="ka" aria-pressed="true">KA</button>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      <button class="lang-btn" data-lang="ar" aria-pressed="false">AR</button>
+    </div>
+    <button class="btn" id="fsDown" title="A−">A−</button>
+    <button class="btn" id="fsUp" title="A+">A+</button>
+    <button class="btn" id="theme" title="Theme">ღამე</button>
+    <a class="btn" href="#toc" id="tocBtn">სარჩევი</a>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="kicker" id="heroKicker">მოთხრობა · 1888–1889 · ჩარგლის მემკვიდრეობა</p>
+  <h1 id="heroTitle">ხმელი წიფელი</h1>
+  <p class="subtitle" id="heroSubtitle">ვაჟა-ფშაველა</p>
+  <p class="lead" id="heroLead">ტყეში ერთი ხეა, რომელიც ყველაზე მარტო დგას — და ყველაზე მეტს იმახსოვრებს. ეს ამბავი იმაზეა, რა რჩება ადამიანს, როცა ძალა, სილამაზე და სახელი წარსულს რჩება.</p>
+  <div class="chips" id="heroChips"></div>
+  <a class="cta primary" href="#s1" id="ctaStart">კითხვის დაწყება</a>
+  <a class="cta ghost" href="#toc" id="ctaToc">სარჩევი</a>
+</section>
+
+<main class="wrap">
+
+  <section class="panel reveal" id="narrative">
+    <h2 id="narTitle">ჩემი ნარატივი — ხმელი წიფელი როგორც მეხსიერების ხიდი</h2>
+    <p class="small" id="narSub">საავტორო ხედვა · Chargali Legacy პროექტის ნაწილი</p>
+    <div class="narrative-box" id="narBody"></div>
+  </section>
+
+  <section class="panel reveal" id="age">
+    <h2 id="ageTitle">ასაკობრივი შეფასება</h2>
+    <p class="small" id="ageSub">აირჩიე ასაკი — და ნახე, როგორ იკითხება ეს ტექსტი ამ ასაკში.</p>
+    <div class="age-row" id="ageRow" role="group" aria-label="Age selection"></div>
+    <div class="age-note"><span class="dot"></span><span id="ageNote"></span></div>
+  </section>
+
+  <section class="panel reveal" id="toc">
+    <h2 id="tocTitle">სარჩევი</h2>
+    <p class="small" id="tocSub">11 სცენა · დააჭირე სათაურს გადასვლისთვის</p>
+    <nav class="toc-grid" id="tocGrid"></nav>
+  </section>
+
+  <div id="contentRoot"></div>
+
+  <section class="closing reveal">
+    <p class="line" id="closingLine">„ესღაა იმისი ნუგეში...“</p>
+    <p class="sig" id="closingSig">ვაჟა-ფშაველა · 1888–1889 · Chargali Legacy</p>
+  </section>
+
+</main>
+
+<footer id="footerRoot"></footer>
+
+<button class="totop" id="totop" aria-label="Top">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  const PHOTO_SRC = "1000033271.jpg";
+
+  const UI = {
+    ka: {
+      dir: "ltr",
+      title: "ხმელი წიფელი — ჩარგლის მემკვიდრეობა",
+      brandTitle: "ხმელი წიფელი",
+      brandAuthor: "ვაჟა-ფშაველა",
+      themeNight: "ღამე",
+      themeDay: "დღე",
+      tocBtn: "სარჩევი",
+      kicker: "მოთხრობა · 1888–1889 · ჩარგლის მემკვიდრეობა",
+      heroTitle: "ხმელი წიფელი",
+      heroSubtitle: "ვაჟა-ფშაველა",
+      heroLead: "ტყეში ერთი ხეა, რომელიც ყველაზე მარტო დგას — და ყველაზე მეტს იმახსოვრებს. ეს ამბავი იმაზეა, რა რჩება ადამიანს, როცა ძალა, სილამაზე და სახელი წარსულს რჩება.",
+      chips: ["11 სცენა", "≈ 11 წთ კითხვა", "ზოგადი ასაკი 10–18", "ოპტიმალური 13–16"],
+      ctaStart: "კითხვის დაწყება",
+      ctaToc: "სარჩევი",
+      narTitle: "ჩემი ნარატივი — ხმელი წიფელი როგორც მეხსიერების ხიდი",
+      narSub: "საავტორო ხედვა · Chargali Legacy პროექტის ნაწილი",
+      narrative: [
+        "ჩემთვის „ხმელი წიფელი“ მხოლოდ მოხუცი ხის მწუხარება არ არის — ეს არის ხსოვნის, ღირსებისა და ფარული სიცოცხლის ამბავი. მაშინაც კი, როცა გარეგნულად ყველაფერი დამსხვრეული და დამდნარი ჩანს, ღირსეული არსება არ იხრება ქარის წინაშე და მის ფესვებში მაინც იბადება ახალი ყლორტი.",
+        "ამ სივრცეს ვქმნი როგორც ნაწილს ჩემი პროექტისა (chargalilegacy.github.io), რათა ვაჟა-ფშაველას ხმა და ჩარგლის სული ჟღერდეს არა მხოლოდ ქართულად, არამედ ინგლისურადაც და არაბულადაც — იქ, სადაც მარტოობის, სიმტკიცისა და მეხსიერების ენა ყველასთვის გასაგებია."
+      ],
+      ageTitle: "ასაკობრივი შეფასება",
+      ageSub: "აირჩიე ასაკი — და ნახე, როგორ იკითხება ეს ტექსტი ამ ასაკში.",
+      ageDefault: "ზოგადი ასაკი: 10–18 · ოპტიმალური: 13–16. ტექსტი გრძელი წინადადებებითა და ძველი ფორმებითაა დაწერილი — ღირს ხმამაღლა კითხვა.",
+      ageYearSuffix: "წელი",
+      ageNotes: [
+        {to:7,  t:"ამ ასაკში ტექსტი რთულია: გრძელი წინადადებები, ძველი ფორმები და მეტაფორები. უკეთესია ხმამაღლა კითხვა ან გამარტივებული გადმოცემა ზრდასრულის მიერ."},
+        {to:9,  t:"წაკითხვა შესაძლებელია მხოლოდ ხმამაღლა, უფროსის დახმარებით. მთავარი გმირი ხეა — ეს ბავშვს აზროვნების გადატანას ასწავლის."},
+        {to:12, t:"ზოგადი ასაკი: იწყება დამოუკიდებელი კითხვა. ლექსი უკვე ემოციურად მუშაობს, სოციალური ფონი კი ნაწილობრივ იკითხება."},
+        {to:16, t:"ოპტიმალური ასაკი: სრულად იკითხება ტექსტის ირონია, მარტოობის თემა, სოციალური კრიტიკა და პოეტური ფორმა."},
+        {to:18, t:"სრულფასოვანი ლიტერატურული კითხვა: შესაძლებელია კომპოზიციის, სიმბოლიკისა და ვაჟას სტილის ანალიზი."}
+      ],
+      tocTitle: "სარჩევი",
+      tocSub: "11 სცენა · დააჭირე სათაურს გადასვლისთვის",
+      poemLabel: "ლექსი",
+      captionPrefix: "ვიზუალური სცენა · ხმელი წიფელი",
+      closingLine: "„ესღაა იმისი ნუგეში...“",
+      closingSig: "ვაჟა-ფშაველა · 1888–1889 · Chargali Legacy",
+      footer: [
+        "ტექსტი: ვაჟა-ფშაველა, „ხმელი წიფელი“ (1888–1889) · ნარატივი და მრავალენოვანი გამოცემა: Chargali Legacy.",
+        'პროექტების პორტალი: <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">chargalilegacy.github.io</a> · <a href="#toc">დაბრუნება სარჩევში ↑</a>'
+      ]
+    },
+    en: {
+      dir: "ltr",
+      title: "The Withered Beech — Chargali Legacy",
+      brandTitle: "The Withered Beech",
+      brandAuthor: "Vazha-Pshavela",
+      themeNight: "Night",
+      themeDay: "Day",
+      tocBtn: "Contents",
+      kicker: "Story · 1888–1889 · Chargali Legacy",
+      heroTitle: "The Withered Beech",
+      heroSubtitle: "Vazha-Pshavela",
+      heroLead: "In the forest stands a single tree—most alone, yet holding the deepest memory. This story asks what remains when strength, beauty, and name fall behind.",
+      chips: ["11 Scenes", "≈ 11 min read", "General age 10–18", "Optimal 13–16"],
+      ctaStart: "Start Reading",
+      ctaToc: "Contents",
+      narTitle: "My Narrative — The Withered Beech as a Bridge of Memory",
+      narSub: "Author’s Note · Part of the Chargali Legacy Project",
+      narrative: [
+        "For me, “The Withered Beech” is more than an old tree’s sorrow—it is a meditation on memory, dignity, and quiet endurance. Even when everything appears broken or weathered, an unbowed spirit does not bend before the gale, and a tender shoot still rises from its roots.",
+        "I am shaping this edition as part of my work at chargalilegacy.github.io so Vazha-Pshavela’s voice and the spirit of Chargali speak not only in Georgian, but also in English and Arabic—where solitude, resilience, and memory resonate universally."
+      ],
+      ageTitle: "Age & Reading Guide",
+      ageSub: "Choose an age to see how the text reads at that stage.",
+      ageDefault: "General age: 10–18 · Optimal: 13–16. Rich syntax and older idioms reward reading aloud.",
+      ageYearSuffix: "yrs",
+      ageNotes: [
+        {to:7,  t:"Challenging at this age due to long clauses, older forms, and metaphors. Best read aloud or retold simply by an adult."},
+        {to:9,  t:"Best experienced aloud with a grown-up. Having a tree as the central figure encourages empathy and imaginative projection."},
+        {to:12, t:"General reading age: independent reading begins. The verse resonates emotionally while social nuances emerge gradually."},
+        {to:16, t:"Optimal age: irony, solitude, social critique, and poetic structure come into full focus."},
+        {to:18, t:"Full literary reading: ideal for analyzing composition, symbolism, and Vazha-Pshavela’s voice."}
+      ],
+      tocTitle: "Table of Contents",
+      tocSub: "11 scenes · Select a title to jump directly",
+      poemLabel: "Poem",
+      captionPrefix: "Visual scene · The Withered Beech",
+      closingLine: "“That alone is its comfort...”",
+      closingSig: "Vazha-Pshavela · 1888–1889 · Chargali Legacy",
+      footer: [
+        "Source text: Vazha-Pshavela, “The Withered Beech” (1888–1889) · Narrative & multilingual edition: Chargali Legacy.",
+        'Project hub: <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">chargalilegacy.github.io</a> · <a href="#toc">Back to contents ↑</a>'
+      ]
+    },
+    ar: {
+      dir: "rtl",
+      title: "الزانة اليابسة — إرث شارغالي",
+      brandTitle: "الزانة اليابسة",
+      brandAuthor: "فاجا بشافيلا",
+      themeNight: "ليل",
+      themeDay: "نهار",
+      tocBtn: "الفهرس",
+      kicker: "قصة · ١٨٨٨–١٨٨٩ · إرث شارغالي",
+      heroTitle: "الزانة اليابسة",
+      heroSubtitle: "فاجا بشافيلا",
+      heroLead: "في الغابة تقف شجرة واحدة، هي الأكثر وحدة والأكثر حفظاً للذاكرة. هذه القصة تتأمل فيما يبقى للإنسان حين تتراجع القوة والجمال والاسم.",
+      chips: ["١١ مشهداً", "≈ ١١ دقيقة قراءة", "العمر العام ١٠–١٨", "الأنسب ١٣–١٦"],
+      ctaStart: "ابدأ القراءة",
+      ctaToc: "الفهرس",
+      narTitle: "سردي الخاص — الزانة اليابسة كجسر للذاكرة",
+      narSub: "رؤية المؤلف · جزء من مشروع إرث شارغالي (Chargali Legacy)",
+      narrative: [
+        "بالنسبة لي، لا تمثل «الزانة اليابسة» حزن شجرة هرمة فحسب، بل هي حكاية الذاكرة والكرامة والحياة الخفية. فحتى حين يبدو كل شيء متصدعاً في الظاهر، لا ينحني الكيان الأبيّ أمام العاصفة، ومن جذوره يولد برعم جديد.",
+        "أصمم هذه الصفحة ضمن مشروعي (chargalilegacy.github.io) لكي يصل صوت فاجا بشافيلا وروح شارغالي ليس باللغة الجورجية وحدها، بل بالإنجليزية والعربية أيضاً، حيث تلتقي العزلة والصمود والذاكرة."
+      ],
+      ageTitle: "التقدير العمري للقراءة",
+      ageSub: "اختر عمراً لترى كيف تُقرأ هذه القصة في تلك المرحلة.",
+      ageDefault: "العمر العام: ١٠–١٨ · الأنسب: ١٣–١٦. الجمل الطويلة والصيغ التراثية تجعل القراءة بصوتٍ مرتفع تجربة ثرية.",
+      ageYearSuffix: "سنة",
+      ageNotes: [
+        {to:7,  t:"النص صعب في هذا العمر بسبب الجمل الطويلة والاستعارات؛ يُستحسن قراءته بصوت مرتفع أو تبسيطه مع بالغ."},
+        {to:9,  t:"مناسب للقراءة المسموعة بمساعدة كبير؛ كون البطل شجرة يساعد الطفل على تنمية الخيال والتعاطف."},
+        {to:12, t:"عمر مناسب لبداية القراءة المستقلة؛ يلامس الشعر الوجدان بينما تتضح الأبعاد الاجتماعية تدريجياً."},
+        {to:16, t:"العمر الأنسب؛ تتضح فيه السخرية والوحدة والنقد الاجتماعي والبنية الشعرية للنص."},
+        {to:18, t:"قراءة أدبية متكاملة تتيح تحليل البناء والرمزية وأسلوب فاجا بشافيلا."}
+      ],
+      tocTitle: "الفهرس",
+      tocSub: "١١ مشهداً · اضغط على العنوان للانتقال",
+      poemLabel: "قصيدة",
+      captionPrefix: "مشهد بصري · الزانة اليابسة",
+      closingLine: "«هذا وحده عزاءُها...»",
+      closingSig: "فاجا بشافيلا · ١٨٨٨–١٨٨٩ · Chargali Legacy",
+      footer: [
+        "النص: فاجا بشافيلا، «الزانة اليابسة» (١٨٨٨–١٨٨٩) · السرد والنسخة متعددة اللغات: إرث شارغالي (Chargali Legacy).",
+        'بوابة المشاريع: <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">chargalilegacy.github.io</a> · <a href="#toc">العودة إلى الفهرس ↑</a>'
+      ]
+    }
+  };
+
+  const SCENES = [
+    {
+      id: "s1", num: "01", h: 120,
+      title: { ka: "გაზაფხული მთაზე", en: "Spring on the Mountain", ar: "الربيع في الجبل" },
+      caption: { ka: "მთა, მდინარე და მარტოობა — ხმელი წიფლის სამყარო", en: "Mountain, river, and solitude—the world of the withered beech", ar: "الجبل والنهر والوحدة — عالم الزانة اليابسة" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "ყველას, და მათ შორის მეც, მიყვარს მაღალი, მწვანით, ყვავილებით მორთული მთა; გაზაფხულის სუნი, ახლად ამომავალი ბალახი, ახლად დამდნარის ყინულისათვის რომ უჯობნია, უცოდველად, უვნებლად ამოუჩენია თავი და შეჰყურებს მზეს, ქვეყანას, იჩქმალება, ინაბება, მაგრამ ნაზს, მიბნედილს სახეზე გამოუთქმელი ტრფიალება გადაჰფენია: „გავცოცხლდი, მადლი ჩემს გამჩენსაო“, — თითქოს დუდუნებს." },
+          { text: "საამურია, გაყინული ხეები გაზაფხულის სითბოთი ზოგნი რომ გაიფოთლებიან და სხვანი აყვავდებიან. მიბუნდებულს, უღრანს, ბნელს, დაბურულს ტყეს ხომ რა შეედრება!.." }
+        ],
+        en: [
+          { drop: true, text: "Everyone—and I among them—loves a high mountain adorned with green and blossoms: the scent of spring, fresh grass rising after newly melted ice, emerging innocent and unharmed to gaze at the sun and the world, shy and hushed, yet glowing with an unspoken devotion as if murmuring, “I have come alive; thanks be to my Maker.”" },
+          { text: "How sweet it is when frost-bound trees unfold their leaves in spring warmth and others break into bloom. What can compare to a deep, shadowed, dense forest!.." }
+        ],
+        ar: [
+          { drop: true, text: "يحب الجميع—وأنا بينهم—الجبل العالي المزدان بالخضرة والأزهار؛ رائحة الربيع، والعشب الفتي الذي غلب الجليد الذائب حديثاً، فبرز بريئاً سالماً ينظر إلى الشمس والدنيا، في خجل وسكون، وعلى وجهه الرقيق شغف لا يُوصف كأنه يتمتم: «لقد حييتُ، فالحمد لخالقي»." },
+          { text: "ما أبهج أن تورق الأشجار المتجمدة بدفء الربيع وتزهر أخرى؛ وأي شيء يضاهي غابة كثيفة ظليلة عميقة!.." }
+        ]
+      }
+    },
+    {
+      id: "s2", num: "02", h: 100,
+      title: { ka: "ერთი ხმელი წიფელი", en: "A Single Withered Beech", ar: "زانة واحدة يابسة" },
+      caption: { ka: "კლდის თავზე მდგომი წიფელი და ქვემოთ მოლივლივე ხეობა", en: "The beech atop the crag above the winding valley", ar: "الزانة فوق الصخرة والوادي الملتف في الأسفل" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { text: "მაგრამ ამჟამად ყველაფერი მავიწყდება და თვალწინ მიდგება მხოლოდ ერთი ხმელი წიფელი. ისიც უღრანს ტყეში დგას, ერთის კლდის თავზედ. ამ კლდესაც ხავერდივით მწვანე ხავსი გადაჰკვრია. ხმელს წიფელს სხვა ხეები შორს უდგანან, თითქოს განგებ გაჰშორებიან და ამაყად დასჩერებიან თავზე." },
+          { text: "ხმელის წიფლის ახლო რამდენიმე ჟოლოს ფეხია მოსული, შველისა და ირმის ნაკვნეტის ფოთლებით. ისინი გადმოძაბულან და გადმოსცქერიან დაბლა მდინარეს, მის ფესვებში რამდენიმე ფეხი ძირტკბილა მოდის, ზამთარ-ზაფხულ მწვანე, დაკბილულფოთლებიანი." },
+          { text: "ხმელს წიფელს წასვლია სიცოცხლის ნიშანწყალი: სამი ტოტიღა შერჩენია შუა წელს ქვევით, ზედა ტანი მოტეხილა და ხევში ჩაჩხატულა, გახიდულა. ამ სამ ტოტში წელიწადში მარტო ერთს გამოუვა ხოლმე სამი თუ ოთხი ფოთოლი, ისიც ფერწასული, დამჭკნარი, გაყვითლებული." }
+        ],
+        en: [
+          { text: "Yet right now everything fades from mind, and before my eyes stands only one withered beech. It too stands in the deep forest, atop a crag wrapped in moss like velvet. Other trees stand at a distance, as if keeping apart on purpose and looking down proudly." },
+          { text: "Near the withered beech grow a few raspberry canes with leaves nibbled by roe and red deer, leaning out toward the river below; at its roots grow stalks of licorice, green year-round with toothed leaves." },
+          { text: "Every sign of life seems gone from the withered beech: only three branches remain below mid-trunk, while the upper trunk snapped and fell wedged into the ravine. Of those three, only one puts out three or four leaves a year—pale, withered, yellow." }
+        ],
+        ar: [
+          { text: "لكن كل شيء يغيب عن بالي الآن ولا يمثل أمام عيني سوى زانة يابسة واحدة، تقف في الغابة الكثيفة على رأس صخرة يكسوها طحلب أخضر كالمخمل. وتقف الأشجار الأخرى بعيداً كأنها اعتزلت عمداً وتنظر إليها بكبرياء." },
+          { text: "قرب الزانة اليابسة نمت شجيرات توت بأوراق قضمها الظبي والأيل وهي متطاولة نحو النهر أدناه، وعند جذورها ينمو عرق السوس أخضر صيفاً وشتاءً بأوراقه المسننة." },
+          { text: "لقد غابت عنها ملامح الحياة؛ لم يبقَ لها سوى ثلاثة أغصان أسفل الجذع، بينما انكسر أعلاها وهوى في الشعب. ومن هذه الأغصان الثلاثة لا يُخرج غصن واحد في العام سوى ثلاث أو أربع ورقات ذابلة صفراء شاحبة." }
+        ]
+      }
+    },
+    {
+      id: "s3", num: "03", h: 150,
+      title: { ka: "„ყური დაუგდე, რას ამბობსო“", en: "“Listen to What It Says”", ar: "«أصغِ لما تقول»" },
+      caption: { ka: "ტყის ხმები და ადგილის დედის ზღაპარი", en: "Voices of the woods and the tale of Adgilis Deda", ar: "أصوات الغابة وحكاية ربة المكان" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "სხვა ხეებს კი, რომ უყუროთ, დატვირთულნი დგანან ბუნების მინიჭებულის სარჩოთი. არაფრად აგდებენ ხმელს წიფელს, ყურადღებას არ აქცევენ. მხოლოდ ზამთრობით, როცა თითონაც შემოეძარცვებათ ხოლმე საპატარძლო ტანისამოსი და, ცოტად თუ ბევრად დაუახლოვდებიან ხმელს წიფელს, მაშინ თუ შეაცქერდებიან, ისიც გაკვრით..." },
+          { text: "ეს მოხდება სწორედ მაშინ, როდესაც პირბადრი, სახენათელი, თმაგაშლილი „ადგილის დედა“ ბუნების სანუგეშოდ სიყვარულზე, სიწმინდეზე და სიცოცხლეზე ზღაპარს უამბობს. მაშინ შეუბუზღუნებენ ხმელს წიფელს: „რას გაშტერებულხარ, საწყალო? ყური დაუგდე, რას ამბობსო!“" },
+          { text: "ხმელი წიფელი ამოიკვნესებს ღრმა კვნესით და არც ავად, არც კარგად ყურს არ ათხოვებს ამ ამაყ მცენარეთ, მაგრამ „ადგილის დედის“ ზღაპარს კი ყურს უგდებს; თითოეული მისი სიტყვა ლახვარივით ესობა გულზე და უჩუმრად ცრემლსა ჰღვრის." }
+        ],
+        en: [
+          { drop: true, text: "The other trees stand laden with the bounty nature has granted them. They pay the withered beech no mind—until winter, when their bridal attire falls away and they draw somewhat closer to its state, casting only a passing glance..." },
+          { text: "That happens when the radiant, unveiled “Adgilis Deda” (Mother of the Place), with hair unbound, tells nature a tale of love, purity, and life to comfort it. Then they murmur to the withered beech: “Why do you stare, poor thing? Listen to what she is saying!”" },
+          { text: "The withered beech lets out a deep groan, paying neither good nor ill heed to the proud trees—yet it listens to Adgilis Deda’s tale; each word pierces its heart like a lance, and in silence it sheds tears." }
+        ],
+        ar: [
+          { drop: true, text: "أما الأشجار الأخرى فتقف مثقلة بما وهبتها الطبيعة من رزق، لا تكترث بالزانة اليابسة ولا تلتفت إليها، إلا في الشتاء حين تتساقط عنها حلتها العرسية وتقترب شيئاً ما من حالها، فترمقها بنظرة عابرة..." },
+          { text: "ويكون ذلك حين تروي «أم المكان» الوضّاءة المشرقة، منسدلة الشعر، حكايةً عن الحب والطهر والحياة لتعزي الطبيعة؛ فتهامس الأشجار الزانة اليابسة: «لمَ تحدّقين أيتها المسكينة؟ أصغِ لما تقول!»" },
+          { text: "تتنهد الزانة اليابسة تنهداً عميقاً، لا تعير تلك الأشجار المتكبرة اهتماماً، لكنها تصغي لحكاية أم المكان؛ فكل كلمة تنفذ إلى قلبها كالرمح وتذرف دمعاً صامتاً." }
+        ]
+      }
+    },
+    {
+      id: "s4", num: "04", h: 85,
+      title: { ka: "როცა ის ამაყად იდგა", en: "When It Stood Proud", ar: "حين كانت تقف شامخة" },
+      caption: { ka: "წარსული სიდიადე და დროის კვალი", en: "Past grandeur and the mark of time", ar: "عظمة الماضي وأثر الزمن" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "საბრალო წიფელი! ერთი დრო იყო, რომ ესეც ამაყად გაბარჯღული იდგა, სხვა ხეებს ბევრით მაღლა ასცილებოდა და თავის დიდრონ ტოტებითა და ფოთლებით ქოხივით ეხურებოდა თავს მთელს ტყეს. მთიდამ ბარად მომდინარი არწივი მის კენწეროზე ისვენებდა, მოჰყვებოდა ამაყად ყეფას. ეხლა კი სულთამბრძოლს დაჰფერებია, წაქცევ-წაქცევაზეა მიმზადული." },
+          { text: "ტანზე რამდენსამე ადგილს საცოდავს გამხმარი ქერქი ასძრობია და ტიტველი გვერდები უჩანს. ერთს ალაგას უფრო გრძლად აჰყრია ქერქი და დედამიწისკენ გრძლად გადმოშვერილა; გეგონებათ, ხანძალი დაუციათ და ნაწლავები გადმოუყრევინებიათო." },
+          { text: "ჭიაც ბევრი თუ აქვს ამ წიფელს, რომ რამდენჯერაც მის ახლო გავლა მომიხდება, ზედ მუდამ კოდალასა ვხედავ. ეს დასაქცევი ერთთავად ზედ აზის და, რაც ძალი და ღონე აქვს, ურახუნებს იმ გასახმობს, გასავერანებელს ნისკარტს; თან კიდეც დასჭყივის, დაჰკივის, თითქოს ნიშნს უგებსო. აგერ რამდენს ადგილას ამოუღრუტნია წიფელი გულამდის. საცაა გულსაც ფქვას დაუწყებს." }
+        ],
+        en: [
+          { drop: true, text: "Poor beech! There was a time when it too stood broad and proud, towering far above the other trees and sheltering the forest like a roof with its great boughs and leaves. An eagle descending from the mountains would rest upon its crown and cry out proudly. Now it wears the look of one in its final struggle, poised to fall." },
+          { text: "In places its dry bark has peeled away, baring naked flanks; in one spot a long strip hangs down toward the earth, as if a fire had struck and spilled entrails." },
+          { text: "Worms riddle it too: whenever I pass nearby, I see a woodpecker clinging to it, hammering with all its might at the ruined wood and crying out as if mocking it, hollowing it deep toward the core." }
+        ],
+        ar: [
+          { drop: true, text: "مسكينة هذه الزانة! كان لها زمان تقف فيه فارعة شامخة، تعلو الأشجار الأخرى وتظلل الغابة بضخامة أغصانها وأوراقها؛ وكان النسر الهابط من الجبل يحطّ على قمتها ويصدح بكبرياء. أما الآن فقد بدت عليها سيماء الاحتضار وهي على وشك السقوط." },
+          { text: "تقشّر لحاؤها الجاف في مواضع فبدت جوانبها عارية، وفي موضع تدلّى شريط طويل نحو الأرض كأن حريقاً أصابها وأخرج أحشاءها." },
+          { text: "وفيها دود كثير، فكلما مررت بقربها رأيت نقار الخشب جاثماً عليها يقرع خشبها المتداعي بكل قوته ويصيح كأنه يسخر منها، وقد نخرها حتى القلب." }
+        ]
+      }
+    },
+    {
+      id: "s5", num: "05", h: 175,
+      title: { ka: "ქარი და ჩამონგრეული ტოტები", en: "Wind and Fallen Boughs", ar: "الريح والأغصان المتهاوية" },
+      caption: { ka: "შეუპოვრობა, რომელიც ქარში არ იხრება", en: "Steadfastness that does not bend in the wind", ar: "الثبات الذي لا ينحني أمام الريح" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "წიფელი დგას, დგას შეუშფოთრად, წარბშეუხრელად; არც ავს ამბობს, არც კარგსა. როცა ქარი უბერავს, სხვა ხეები ირწევიან, მხოლოდ ხმელი წიფელი არ ინძრევა; წინად კი, როცა იგი ჯანსაღად იყო, სიცოცხლით სავსე, ქარის ბერვაზე დაიწყებდა ზღვასავით ღელვას; მისი ტოტები და ფოთლები ჭექა-ქუხილივით ხმაურობას ასტეხდნენ. ხმელის წიფლის ტოტები ამაყად დედამიწას სცემდენ, ასკდებოდენ." },
+          { text: "დიაღ, ეხლა ქარს ვეღარ მიჰყვება ხმელი წიფელი სხვა ხეებივით, ძველებურად, შეუპოვრად გულ-მკერდს ვეღარ უპყრობს ქარიშხალს. არ მოიდრიკება კი ხმელი წიფელი და, თუ მოსტყდება, იმისი რა ვსთქვათ... მოსტყდება, წაიქცევა, გვერდზე წაწვება, ფეხვები გამოჩნდებიან, აღმე თავაჭერილები, თითქოს ლოცულობდნენ, ღმერთს ევედრებოდნენ, შველასა სთხოვდენო." }
+        ],
+        en: [
+          { drop: true, text: "The beech stands unperturbed, brow unknit, saying neither good nor ill. When the wind blows, other trees sway while only the withered beech does not stir; once, when whole and full of life, it surged like the sea in the wind, its boughs and leaves roaring like thunder." },
+          { text: "Indeed, it no longer sways with the wind like the others or meets the gale chest-first as before. Yet the withered beech will not bend—and if it breaks, what can be said? If it breaks and falls on its side, its roots rise into the air like hands lifted in prayer." }
+        ],
+        ar: [
+          { drop: true, text: "تقف الزانة ثابتة لا تضطرب ولا تقطّب حاجباً، لا تقول شراً ولا خيراً. حين تهبّ الريح تتمايل الأشجار الأخرى وحدها لا تتحرك؛ أما حين كانت فتية مليئة بالحياة فكانت تموج كالبحر وتدوي أغصانها وأوراقها كالرعد." },
+          { text: "نعم، لم تعد تجاري الريح كغيرها أو تواجه العاصفة بصدرها كسابق عهدها، لكنها لا تنحني، وإن انكسرت فهوت على جنبها ارتفعت جذورها في الهواء كأنها تضرع وتطلب العون." }
+        ]
+      }
+    },
+    {
+      id: "s6", num: "06", h: 135,
+      title: { ka: "ზაფხულის ჩრდილი", en: "Summer Shade", ar: "ظل الصيف" },
+      caption: { ka: "ბუნების სილამაზე და შეუმჩნეველი ღირსება", en: "Forest life and quiet worth", ar: "حياة الغابة وقيمة خفية" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "ზაფხულობით უფრო შესაბრალისია ხმელი წიფელი. სხვა ხეები მორთულან მწვანის ფოთლებით, უვნებელნი, უდარდელნი; მათზედ ათასი ფრინველი სხდება საგალობლად, ქედნები ღუღუნებენ იმათ ტოტებზე, ქერონა ჩიტი დაჰკრავს დაუსრულებელს გალობას, წიპრია იკლებს სტვენით იმათ არემარეს და მოუსვენრად გადახტ-გადმოხტის; ყელმოღერებული შველი და ირემი იმათ იჩრდილავს." },
+          { text: "ეს დაფოთლილი ხეები ამაყად დასცქერიან ბეჩავს ხმელს წიფელს, იმისი ეჩოთირებათ და ამბობენ: „ნეტავი შენ არ გვაუშნოებდეო!“ — არ იციან, რომ ხმელი წიფელი იმათზე მეტად ისხენიება და არიან, იპოვებიან ისეთნი კაცნი, რომელთაც მოსწონთ და უყვართ უბედურებაში ჩავარდნილი ხმელი წიფელი..." }
+        ],
+        en: [
+          { drop: true, text: "In summer the withered beech seems even more pitiable. Other trees are dressed in green leaves, carefree and whole; birds gather in their branches to sing, wood-pigeons coo, and deer rest in their shade." },
+          { text: "Those leafy trees look down proudly on the frail beech, troubled by its presence, saying, “If only you didn’t mar our look!” They do not know that the withered beech holds a deeper memory than they do—and there are people who cherish a noble tree fallen into hardship..." }
+        ],
+        ar: [
+          { drop: true, text: "في الصيف تبدو الزانة اليابسة أشد إثارة للشفقة؛ فالأشجار الأخرى مكللة بالخضرة وادعة مطمئنة، تصدح فيها الطيور وتهدل القماري ويستظل بظلالها الظباء والأيائل." },
+          { text: "تنظر الأشجار المورقة بكبرياء إلى الزانة الضعيفة وتقول متبرمة: «ليتكِ لا تشوّهين منظرنا!»؛ ولا تدري أن للزانة اليابسة ذكراً أعمق، وأن هناك من يحبّها في محنتها..." }
+        ]
+      }
+    },
+    {
+      id: "s7", num: "07", h: 60,
+      title: { ka: "სოფლის ხსენება", en: "Remembered in the Village", ar: "ذكرها في القرية" },
+      caption: { ka: "ხალხის მეხსიერება და ორიენტირი მთა-ბარში", en: "Living memory and a landmark of the highlands", ar: "ذاكرة الناس وعلامة الجبال" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "სოფელში დღეში სამჯერ მაინც მოიგონებენ ხმელს წიფელს: „სადა გყვანდათ დღეს საქონელიო?“ — მამამ რომ ჰკითხოს თავის შვილებს, ისინი უჩვენებენ ხმელის წიფლის მიდამოს, გაღმითს ან გამოღმითს, თავს ან ბოლოს." },
+          { quote: true, text: "„ხმელ წიფლის ძირს, კლდეში, ვეფხი დაბუდებულაო, — ხმა არის სოფელში, — ლეკვები დაუყრიაო“. მონადირეებს ენახათ ხმელ წიფლის გარშემო დედა ვეფხის და იმის ლეკვების კვალი." },
+          { text: "— ეს სააბედე სოკო ხმელს წიფელს ავაჭერო, — ამბობს მეორე." },
+          { text: "დიაღ, არ იციან უგუნურმა ხეებმა, რომ ხალხს ჯერ არ დაუვიწყნია ხმელი წიფლის სახელი, კიდევ ახსოვს იმისი სიდიადე." }
+        ],
+        en: [
+          { drop: true, text: "In the village the withered beech is named at least three times a day: when a father asks his children where they herded the cattle, they point to the slopes near the withered beech—beyond it, this side of it, above or below." },
+          { quote: true, text: "“A leopard has made its lair in the rock beneath the withered beech,” word spreads in the village, “and raised its cubs.” Hunters had spotted tracks of the mother and her young around it." },
+          { text: "“I’ll cut this choice mushroom from the withered beech,” says another." },
+          { text: "Indeed, the heedless trees do not know that the people have not forgotten the withered beech’s name or its former greatness." }
+        ],
+        ar: [
+          { drop: true, text: "في القرية يُذكر اسم الزانة اليابسة ثلاث مرات في اليوم على الأقل؛ فإذا سأل الأب أبناءه أين رعيتم الماشية، أشاروا إلى سفوحها من ورائها أو دونها أو أعلاها أو أسفلها." },
+          { quote: true, text: "ويشيع في القرية أن نمراً اتخذ له عريناً في الصخر عند أصل الزانة اليابسة وأنجب أشبالاً، وقد رأى الصيادون آثار الأم وصغارها حولها." },
+          { text: "ويقول آخر: «سأجني هذا الفطر الثمين من الزانة اليابسة»." },
+          { text: "حقاً، لا تدرك الأشجار الغافلة أن الناس لم ينسوا اسم الزانة اليابسة ولا عظمتها." }
+        ]
+      }
+    },
+    {
+      id: "s8", num: "08", h: 140,
+      title: { ka: "„განა ყველა, რაც ხმელია...“", en: "“Not Everything Withered...”", ar: "«ليس كل ما هو يابس...»" },
+      type: "poem",
+      heading: { ka: "„განა ყველა, რაც ხმელია...“", en: "“Not Everything Withered...”", ar: "«ليس كل ما هو يابس...»" },
+      stanzas: {
+        ka: [
+          ["განა ყველა, რაც ხმელია,", "კაცისგან საწუნარია!?", "ათასს ცოცხლასა ბევრჯელა", "ათჯერ სჯობს ერთი მკვდარია."],
+          ["შენის დანახვით, ტიალო,", "გულს დარდი მაწევს ცხარია,", "რაკი გხედავ, რო ბეჩავად", "და უპატრონოდ ხარია, —", "თითქო დაჰკრესო განგაში,", "სამგლოვიარო ზარია.", "მინდა, რომ დიდხანს ნახარში", "და გულში ნადუღარია", "გაგიზიარო ვარამი,", "მდიოდეს ცრემლის ღვარია."],
+          ["რისთვის მოსულხარ, ბეჩავო,", "არ იგლოვები მკვდარია?!", "შენთვის არც წაწყმედა არი,", "არსად ცხონება არია!", "ვინ არ შეგიკრავს კუბოსა,", "ვინ არ აგინთოს სანთელი?..", "ვაჰ, რა ძნელია, კვდებოდეს,", "იკარგებოდეს სახელი!"]
+        ],
+        en: [
+          ["Not everything that’s withered", "Is worthy of disdain—", "One noble spirit fallen", "Outweighs a thousand vain."],
+          ["At sight of you, lone sentinel,", "A burning grief weighs deep,", "Seeing you stand forsaken", "Where silent shadows creep,", "As if an alarm were sounded", "Or funeral bells would toll—", "I’d share the long-simmered sorrow", "Steeped deep within my soul."],
+          ["Why have you lingered, fragile one,", "Unmourned yet still not dead?", "No utter ruin claims you,", "Nor heaven’s quiet bed;", "Who builds a coffin for you,", "Who lights a candle’s flame?..", "Ah, how hard it is to perish", "And lose a cherished name!"]
+        ],
+        ar: [
+          ["ليس كلُّ ما هو يابسٌ", "أهلاً لأن يُزدَرا،", "كم ميتٍ في فضله", "أغنى وأبقى أثرا."],
+          ["برؤيتكِ يا وحيدةً", "يثقلُ قلبي الشجن،", "إذ أراكِ في وهنٍ", "بلا راعٍ ولا سكن،", "كأنّ ناقوساً دقَّ", "أو جرساً للحداد رنّ،", "فأودّ أن أشاطركِ", "ما في الفؤاد اختزن."],
+          ["لماذا بقيتِ يا ضعيفةُ", "بلا رثاءٍ ولا مآل؟", "لا هلاكُ يطويكِ تاماً", "ولا نجاةُ ولا زوال؛", "فيا قسوةَ أن يفنى", "الاسمُ ويضيعُ الجلال!"]
+        ]
+      }
+    },
+    {
+      id: "s9", num: "09", h: 230,
+      title: { ka: "ბუ", en: "The Owl", ar: "البومة" },
+      caption: { ka: "ღამის ძახილი და მდუმარე ღამე", en: "A call in the night and quiet darkness", ar: "نداء في الليل وظلمة هادئة" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "ღამღამობით ათასში ერთხელ ხმელს წიფელზე ბუ შეჯდება და დაკოდილის ხმით მოჰყვება გულმოკლული ძახილს: „ვერ იპოვეო?“ — და, როცა ძახილით დაქანცულს შემოესმის: „ვერა, ვერაო“, მოსაწყლებული თავს დაჰკიდებს და „ღრუ, ღრუ“, ხმადაბლა გულს ჩასძახებს." }
+        ],
+        en: [
+          { drop: true, text: "Once in a thousand nights an owl alights on the withered beech and calls out in a wounded, broken voice, “Did you not find it?”—and when weary from calling it hears only “No, not yet,” it bows its head and murmurs low into its breast, “Ghrru, ghrru.”" }
+        ],
+        ar: [
+          { drop: true, text: "في ليلةٍ من كل ألف ليلة تحطّ بومة على الزانة اليابسة وتنادي بصوتٍ كليم: «ألم تجد؟»؛ وحين يرتدّ إليها الجواب وقد أعيها النداء: «لا، لا»، تطأطئ رأسها وتتمتم في صدرها بصوتٍ خفيض." }
+        ]
+      }
+    },
+    {
+      id: "s10", num: "10", h: 205,
+      title: { ka: "მგელი", en: "The Wolf", ar: "الذئب" },
+      caption: { ka: "ზამთრის სიცივე და შინაგანი ფიქრი", en: "Winter cold and inward reflection", ar: "برد الشتاء وتأمل الداخل" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "ზამთრობით მგელი ესტუმრება ხოლმე ხმელს წიფელს, აიტუზება იმის გვერდით და ღმუის, შიმშილისაგან შეწუხებული. ხმელი წიფელი შეუშფოთრადა სდგას, არც ავს იტყვის, არც კარგს, სდგას გაშტერებული; იმან არც სიბრალული იცის, არც სიმძულვარე; არც სამტროდ აუდუღდება გული, არც სამოკეთოდ; ფიქრობს ხმელი წიფელი თავის თავზე, წარსულზე, აწმყოსა და მომავალზე; გულში თითქო ღრმად ჩასჭედვია მწუხარება." }
+        ],
+        en: [
+          { drop: true, text: "In winter a wolf visits the withered beech, huddling beside it and howling in the grip of hunger. The withered beech stands unmoved, speaking neither ill nor well, gazing out—knowing neither pity nor hatred, neither enmity nor friendship—pondering itself, its past, present, and future, with sorrow forged deep within." }
+        ],
+        ar: [
+          { drop: true, text: "في الشتاء يزور ذئبٌ الزانة اليابسة، فيربض إلى جانبها ويعوي من وطأة الجوع؛ فتقف الزانة ساكنة لا تقول شراً ولا خيراً، لا تعرف شفقةً ولا كراهية ولا عداوةً ولا مودة، تتأمل ذاتها وماضيها وحاضرها ومستقبلها، وحزنٌ عميق راسخ في قلبها." }
+        ]
+      }
+    },
+    {
+      id: "s11", num: "11", h: 95,
+      title: { ka: "ყლორტი", en: "The Shoot", ar: "البرعم" },
+      caption: { ka: "ფესვთან ამოსული პატარა ყლორტი — მზისა და წვიმის მოლოდინში", en: "A small shoot at the root tip—awaiting sun and rain", ar: "برعم صغير عند طرف الجذر ينتظر الشمس والمطر" },
+      type: "prose",
+      paragraphs: {
+        ka: [
+          { drop: true, text: "ხანდახან გადმოაცქერდება მის ერთ ფესვის ბოლოზე ამოსულს პატარა დასახულს ყლორტს, რომელიც მზეს და წვიმას უცდის, რომ გაიზარდოს. ესღაა იმისი ნუგეში..." }
+        ],
+        en: [
+          { drop: true, text: "At times it looks down at a small shoot sprouting at the tip of one root, waiting for sun and rain to grow. That alone is its comfort..." }
+        ],
+        ar: [
+          { drop: true, text: "وأحياناً تنظر نحو برعمٍ صغير طالعٍ عند طرف أحد جذورها، ينتظر الشمس والمطر لينمو؛ وهذا وحده عزاءُها..." }
+        ]
+      }
+    }
+  ];
+
+  const doc = document.documentElement;
+  let lang = "ka";
+  let curFont = 1;
+  const fontSteps = [0.9, 1, 1.1, 1.22];
+
+  function renderAll(){
+    const t = UI[lang];
+    doc.lang = lang;
+    doc.dir = t.dir;
+    document.title = t.title;
+
+    document.getElementById("brandTitle").textContent = t.brandTitle;
+    document.getElementById("brandAuthor").textContent = t.brandAuthor;
+    document.getElementById("tocBtn").textContent = t.tocBtn;
+    document.getElementById("theme").textContent = doc.getAttribute("data-theme") === "night" ? t.themeDay : t.themeNight;
+
+    document.getElementById("heroKicker").textContent = t.kicker;
+    document.getElementById("heroTitle").textContent = t.heroTitle;
+    document.getElementById("heroSubtitle").textContent = t.heroSubtitle;
+    document.getElementById("heroLead").textContent = t.heroLead;
+    document.getElementById("ctaStart").textContent = t.ctaStart;
+    document.getElementById("ctaToc").textContent = t.ctaToc;
+
+    document.getElementById("heroChips").innerHTML = t.chips.map(c => `<span class="chip">${c}</span>`).join("");
+
+    document.getElementById("narTitle").textContent = t.narTitle;
+    document.getElementById("narSub").textContent = t.narSub;
+    document.getElementById("narBody").innerHTML = t.narrative.map(p => `<p>${p}</p>`).join("");
+
+    document.getElementById("ageTitle").textContent = t.ageTitle;
+    document.getElementById("ageSub").textContent = t.ageSub;
+    const pressedAge = document.querySelector(".age-b[aria-pressed='true']");
+    if (!pressedAge) {
+      document.getElementById("ageNote").textContent = t.ageDefault;
+    } else {
+      const n = Number(pressedAge.textContent);
+      const item = t.ageNotes.find(o => n <= o.to) || t.ageNotes[t.ageNotes.length - 1];
+      document.getElementById("ageNote").textContent = `${n} ${t.ageYearSuffix} — ${item.t}`;
+    }
+
+    document.getElementById("tocTitle").textContent = t.tocTitle;
+    document.getElementById("tocSub").textContent = t.tocSub;
+    document.getElementById("tocGrid").innerHTML = SCENES.map(s =>
+      `<a class="toc-a" href="#${s.id}"><span class="toc-n">${s.num}</span><span>${s.title[lang]}</span></a>`
+    ).join("");
+
+    document.getElementById("contentRoot").innerHTML = SCENES.map(s => {
+      if (s.type === "poem") {
+        const stanzasHtml = s.stanzas[lang].map(st =>
+          `<p class="stanza">${st.map(line => `<span>${line}</span>`).join("")}</p>`
+        ).join("");
+        return `
+          <article class="poem reveal in" id="${s.id}">
+            <div class="card">
+              <p class="lbl">${t.poemLabel}</p>
+              <h2>${s.heading[lang]}</h2>
+              <div class="rule"></div>
+              ${stanzasHtml}
+            </div>
+          </article>`;
+      }
+      const parasHtml = s.paragraphs[lang].map(p => {
+        const cls = p.drop ? ' class="drop"' : (p.quote ? ' class="q"' : '');
+        return `<p${cls}>${p.text}</p>`;
+      }).join("");
+      return `
+        <article class="scene reveal in" id="${s.id}">
+          <div class="scene-h"><span class="n">${s.num}</span><h2>${s.title[lang]}</h2></div>
+          <figure class="art" style="--h:${s.h}">
+            <img src="${PHOTO_SRC}" alt="${s.title[lang]}" loading="lazy">
+            <span class="overlay-badge">${t.captionPrefix}</span>
+            <span class="bignum">${s.num}</span>
+          </figure>
+          <figcaption>${s.caption[lang]}</figcaption>
+          ${parasHtml}
+        </article>`;
+    }).join("");
+
+    document.getElementById("closingLine").textContent = t.closingLine;
+    document.getElementById("closingSig").textContent = t.closingSig;
+    document.getElementById("footerRoot").innerHTML = t.footer.join("<br>");
+
+    bindActiveToc();
+  }
+
+  function bindActiveToc(){
+    const links = document.querySelectorAll(".toc-a");
+    if (!("IntersectionObserver" in window)) return;
+    const map = {};
+    links.forEach(a => { map[a.getAttribute("href").slice(1)] = a; });
+    const so = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const a = map[e.target.id];
+        if (!a) return;
+        if (e.isIntersecting){
+          links.forEach(x => x.classList.remove("active"));
+          a.classList.add("active");
+        }
+      });
+    }, { threshold: 0, rootMargin: "-45% 0px -45% 0px" });
+    document.querySelectorAll(".scene, .poem").forEach(el => so.observe(el));
+  }
+
+  /* Language buttons */
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      lang = btn.dataset.lang;
+      document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+      renderAll();
+    });
+  });
+
+  /* Scroll & Top */
+  const prog = document.getElementById("prog");
+  const totop = document.getElementById("totop");
+  function onScroll(){
+    const h = doc.scrollHeight - doc.clientHeight;
+    const y = window.pageYOffset || doc.scrollTop;
+    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+    totop.classList.toggle("show", y > 600);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  totop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  /* Font size */
+  document.getElementById("fsUp").addEventListener("click", () => {
+    curFont = Math.min(fontSteps.length - 1, curFont + 1);
+    doc.style.setProperty("--fs", fontSteps[curFont]);
+  });
+  document.getElementById("fsDown").addEventListener("click", () => {
+    curFont = Math.max(0, curFont - 1);
+    doc.style.setProperty("--fs", fontSteps[curFont]);
+  });
+
+  /* Theme */
+  const themeBtn = document.getElementById("theme");
+  themeBtn.addEventListener("click", () => {
+    const night = doc.getAttribute("data-theme") === "night";
+    const t = UI[lang];
+    if (night) {
+      doc.removeAttribute("data-theme");
+      themeBtn.textContent = t.themeNight;
+    } else {
+      doc.setAttribute("data-theme", "night");
+      themeBtn.textContent = t.themeDay;
+    }
+  });
+
+  /* Age buttons */
+  const ageRow = document.getElementById("ageRow");
+  for (let a = 3; a <= 18; a++) {
+    const b = document.createElement("button");
+    b.className = "age-b";
+    b.type = "button";
+    b.textContent = String(a);
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => {
+      ageRow.querySelectorAll(".age-b").forEach(x => x.setAttribute("aria-pressed", "false"));
+      b.setAttribute("aria-pressed", "true");
+      const t = UI[lang];
+      const item = t.ageNotes.find(o => a <= o.to) || t.ageNotes[t.ageNotes.length - 1];
+      document.getElementById("ageNote").textContent = `${a} ${t.ageYearSuffix} — ${item.t}`;
+    });
+    ageRow.appendChild(b);
+  }
+
+  renderAll();
+})();
+</script>
+</body>
+</html>
