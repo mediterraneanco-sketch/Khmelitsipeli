@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ხმელი წიფელი — ჩარგლის მემკვიდრეობა</title>
-<meta name="description" content="ვაჟა-ფშაველას „ხმელი წიფელი“ — მრავალენოვანი ნარატიული გამოცემა (KA / EN / AR) · Chargali Legacy.">
+<meta name="description" content="ვაჟა-ფშაველას „ხმელი წიფელი“ — ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი (KA / EN / AR) · Chargali Legacy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Georgian:wght@400;700&family=Noto+Serif+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,7 +36,8 @@ html[lang="ar"] .poem .lbl,
 html[lang="ar"] .closing .sig,
 html[lang="ar"] footer,
 html[lang="ar"] .art .overlay-badge,
-html[lang="ar"] .art .bignum{
+html[lang="ar"] .art .bignum,
+html[lang="ar"] .eco-link{
   font-family:"Noto Naskh Arabic","Noto Sans Arabic",serif;
 }
 html[lang="ar"] .scene p{text-align:right}
@@ -100,7 +101,8 @@ img{max-width:100%; display:block}
 .hero>*{position:relative; z-index:1}
 .kicker{font-family:"Noto Sans Georgian",sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#c9ad74; margin:0}
 h1{font-size:clamp(34px,7vw,64px); line-height:1.12; margin:16px 0 10px; letter-spacing:-.4px; font-weight:700}
-.subtitle{color:#d9c9a4; font-size:clamp(14px,2.3vw,18px); margin:0 0 18px; font-family:"Noto Sans Georgian",sans-serif; letter-spacing:.8px}
+.subtitle{color:#d9c9a4; font-size:clamp(14px,2.3vw,18px); margin:0 0 8px; font-family:"Noto Sans Georgian",sans-serif; letter-spacing:.8px}
+.adapter{color:#f0dfba; font-size:clamp(13px,2vw,15.5px); margin:0 0 18px; font-family:"Noto Sans Georgian",sans-serif; opacity:.95}
 .hero p.lead{max-width:650px; margin:0 auto 24px; font-size:1em; color:#e6e0cf}
 .chips{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:0 0 26px}
 .chip{font-family:"Noto Sans Georgian",sans-serif; font-size:11.5px; letter-spacing:.4px; padding:5px 12px; border-radius:99px; border:1px solid rgba(220,199,154,.38); color:#e9dfc6}
@@ -124,6 +126,16 @@ h1{font-size:clamp(34px,7vw,64px); line-height:1.12; margin:16px 0 10px; letter-
 html[lang="ar"] .narrative-box{border-left:none; border-right:4px solid var(--gold)}
 .narrative-box p{margin:0 0 10px}
 .narrative-box p:last-child{margin-bottom:0}
+.narrative-sig{margin-top:12px; font-size:.88em; color:var(--muted); font-weight:700}
+
+/* ecosystem links */
+.eco-grid{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+.eco-link{
+  display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+  color:var(--ink); background:var(--soft); border:1px solid var(--line);
+  border-radius:10px; padding:9px 14px; font-size:.88em; transition:.18s;
+}
+.eco-link:hover{border-color:var(--gold); background:var(--card); transform:translateY(-1px)}
 
 /* toc */
 .toc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; margin-top:14px}
@@ -245,6 +257,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
   <p class="kicker" id="heroKicker">მოთხრობა · 1888–1889 · ჩარგლის მემკვიდრეობა</p>
   <h1 id="heroTitle">ხმელი წიფელი</h1>
   <p class="subtitle" id="heroSubtitle">ვაჟა-ფშაველა</p>
+  <p class="adapter" id="heroAdapter">ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი</p>
   <p class="lead" id="heroLead">ტყეში ერთი ხეა, რომელიც ყველაზე მარტო დგას — და ყველაზე მეტს იმახსოვრებს. ეს ამბავი იმაზეა, რა რჩება ადამიანს, როცა ძალა, სილამაზე და სახელი წარსულს რჩება.</p>
   <div class="chips" id="heroChips"></div>
   <a class="cta primary" href="#s1" id="ctaStart">კითხვის დაწყება</a>
@@ -254,9 +267,15 @@ html[lang="ar"] .totop{right:auto; left:18px}
 <main class="wrap">
 
   <section class="panel reveal in" id="narrative">
-    <h2 id="narTitle">ჩემი ნარატივი — ხმელი წიფელი როგორც მეხსიერების ხიდი</h2>
-    <p class="small" id="narSub">საავტორო ხედვა · Chargali Legacy პროექტის ნაწილი</p>
+    <h2 id="narTitle">ნარატიული ხედვა — ხმელი წიფელი როგორც მეხსიერების ხიდი</h2>
+    <p class="small" id="narSub">ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი · Chargali Legacy</p>
     <div class="narrative-box" id="narBody"></div>
+  </section>
+
+  <section class="panel reveal in" id="ecosystem">
+    <h2 id="ecoTitle">გამოცემები და ეკოსისტემა</h2>
+    <p class="small" id="ecoSub">ენობრივი გამოცემები და დაკავშირებული გვერდები</p>
+    <div class="eco-grid" id="ecoGrid"></div>
   </section>
 
   <section class="panel reveal in" id="toc">
@@ -269,7 +288,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
 
   <section class="closing reveal in">
     <p class="line" id="closingLine">„ესღაა იმისი ნუგეში...“</p>
-    <p class="sig" id="closingSig">ვაჟა-ფშაველა · 1888–1889 · Chargali Legacy</p>
+    <p class="sig" id="closingSig">ვაჟა-ფშაველა · ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი · Chargali Legacy</p>
   </section>
 
 </main>
@@ -284,6 +303,29 @@ html[lang="ar"] .totop{right:auto; left:18px}
 
   const PHOTO_SRC = "file_1795345836708.jpg";
 
+  const ECO_LINKS = [
+    {
+      href: "https://chargalilegacy.github.io/",
+      label: { ka: "ჩარგალი ლეგასი ↗", en: "Chargali Legacy ↗", ar: "إرث شارغالي ↗" }
+    },
+    {
+      href: "https://chargalilegacy.github.io/",
+      label: { ka: "🇬🇪 შვლის ნუკრის ნაამბობი (KA) ↗", en: "🇬🇧 The Fawn’s Tale (EN) ↗", ar: "🇸🇦 حكايات من عيون الغزال (AR) ↗" }
+    },
+    {
+      href: "https://chargalilegacy.github.io/",
+      label: { ka: "🇬🇧 The Fawn’s Tale (EN) ↗", en: "🇬🇪 Shvlis Nukris Naambobi (KA) ↗", ar: "🇬🇪 حكاية الظبي (KA) ↗" }
+    },
+    {
+      href: "https://chargalilegacy.github.io/",
+      label: { ka: "🇸🇦 حكايات من عيون الغزال (AR) ↗", en: "🇸🇦 Hikayat min ‘Uyun al-Ghazal (AR) ↗", ar: "🇬🇧 The Fawn’s Tale (EN) ↗" }
+    },
+    {
+      href: "https://chargalilegacy.github.io/",
+      label: { ka: "სტუმარ-მასპინძელი ↗", en: "Host and Guest ↗", ar: "المضيف والضيف ↗" }
+    }
+  ];
+
   const UI = {
     ka: {
       dir: "ltr",
@@ -296,24 +338,28 @@ html[lang="ar"] .totop{right:auto; left:18px}
       kicker: "მოთხრობა · 1888–1889 · ჩარგლის მემკვიდრეობა",
       heroTitle: "ხმელი წიფელი",
       heroSubtitle: "ვაჟა-ფშაველა",
+      heroAdapter: "ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი",
       heroLead: "ტყეში ერთი ხეა, რომელიც ყველაზე მარტო დგას — და ყველაზე მეტს იმახსოვრებს. ეს ამბავი იმაზეა, რა რჩება ადამიანს, როცა ძალა, სილამაზე და სახელი წარსულს რჩება.",
-      chips: ["11 სცენა", "≈ 11 წთ კითხვა", "KA / EN / AR", "Chargali Legacy"],
+      chips: ["11 სცენა", "≈ 11 წთ კითხვა", "KA / EN / AR", "ვახტანგ იმერლიშვილი"],
       ctaStart: "კითხვის დაწყება",
       ctaToc: "სარჩევი",
-      narTitle: "ჩემი ნარატივი — ხმელი წიფელი როგორც მეხსიერების ხიდი",
-      narSub: "საავტორო ხედვა · Chargali Legacy პროექტის ნაწილი",
+      narTitle: "ნარატიული ხედვა — ხმელი წიფელი როგორც მეხსიერების ხიდი",
+      narSub: "ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი · Chargali Legacy",
       narrative: [
         "ჩემთვის „ხმელი წიფელი“ მხოლოდ მოხუცი ხის მწუხარება არ არის — ეს არის ხსოვნის, ღირსებისა და ფარული სიცოცხლის ამბავი. მაშინაც კი, როცა გარეგნულად ყველაფერი დამსხვრეული და დამდნარი ჩანს, ღირსეული არსება არ იხრება ქარის წინაშე და მის ფესვებში მაინც იბადება ახალი ყლორტი.",
         "ამ სივრცეს ვქმნი როგორც ნაწილს ჩემი პროექტისა (chargalilegacy.github.io), რათა ვაჟა-ფშაველას ხმა და ჩარგლის სული ჟღერდეს არა მხოლოდ ქართულად, არამედ ინგლისურადაც და არაბულადაც — იქ, სადაც მარტოობის, სიმტკიცისა და მეხსიერების ენა ყველასთვის გასაგებია."
       ],
+      narrativeSig: "ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი",
+      ecoTitle: "გამოცემები და ეკოსისტემა",
+      ecoSub: "ენობრივი გამოცემები და დაკავშირებული გვერდები",
       tocTitle: "სარჩევი",
       tocSub: "11 სცენა · დააჭირე სათაურს გადასვლისთვის",
       poemLabel: "ლექსი",
       captionPrefix: "ვიზუალური სცენა · ხმელი წიფელი",
       closingLine: "„ესღაა იმისი ნუგეში...“",
-      closingSig: "ვაჟა-ფშაველა · 1888–1889 · Chargali Legacy",
+      closingSig: "ვაჟა-ფშაველა · ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი · Chargali Legacy",
       footer: [
-        "ტექსტი: ვაჟა-ფშაველა, „ხმელი წიფელი“ (1888–1889) · ნარატივი და მრავალენოვანი გამოცემა: Chargali Legacy.",
+        "ტექსტი: ვაჟა-ფშაველა, „ხმელი წიფელი“ (1888–1889) · ნარატიული ადაპტაცია: ვახტანგ იმერლიშვილი.",
         'პროექტების პორტალი: <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">chargalilegacy.github.io</a> · <a href="#toc">დაბრუნება სარჩევში ↑</a>'
       ]
     },
@@ -328,24 +374,28 @@ html[lang="ar"] .totop{right:auto; left:18px}
       kicker: "Story · 1888–1889 · Chargali Legacy",
       heroTitle: "The Withered Beech",
       heroSubtitle: "Vazha-Pshavela",
+      heroAdapter: "Narrative Adaptation: Vakhtang Imerlishvili",
       heroLead: "In the forest stands a single tree—most alone, yet holding the deepest memory. This story asks what remains when strength, beauty, and name fall behind.",
-      chips: ["11 Scenes", "≈ 11 min read", "KA / EN / AR", "Chargali Legacy"],
+      chips: ["11 Scenes", "≈ 11 min read", "KA / EN / AR", "Vakhtang Imerlishvili"],
       ctaStart: "Start Reading",
       ctaToc: "Contents",
-      narTitle: "My Narrative — The Withered Beech as a Bridge of Memory",
-      narSub: "Author’s Note · Part of the Chargali Legacy Project",
+      narTitle: "Narrative Vision — The Withered Beech as a Bridge of Memory",
+      narSub: "Narrative Adaptation: Vakhtang Imerlishvili · Chargali Legacy",
       narrative: [
         "For me, “The Withered Beech” is more than an old tree’s sorrow—it is a meditation on memory, dignity, and quiet endurance. Even when everything appears broken or weathered, an unbowed spirit does not bend before the gale, and a tender shoot still rises from its roots.",
         "I am shaping this edition as part of my work at chargalilegacy.github.io so Vazha-Pshavela’s voice and the spirit of Chargali speak not only in Georgian, but also in English and Arabic—where solitude, resilience, and memory resonate universally."
       ],
+      narrativeSig: "Narrative Adaptation: Vakhtang Imerlishvili",
+      ecoTitle: "Editions & Ecosystem",
+      ecoSub: "Language editions and connected pages",
       tocTitle: "Table of Contents",
       tocSub: "11 scenes · Select a title to jump directly",
       poemLabel: "Poem",
       captionPrefix: "Visual scene · The Withered Beech",
       closingLine: "“That alone is its comfort...”",
-      closingSig: "Vazha-Pshavela · 1888–1889 · Chargali Legacy",
+      closingSig: "Vazha-Pshavela · Narrative Adaptation: Vakhtang Imerlishvili · Chargali Legacy",
       footer: [
-        "Source text: Vazha-Pshavela, “The Withered Beech” (1888–1889) · Narrative & multilingual edition: Chargali Legacy.",
+        "Source text: Vazha-Pshavela, “The Withered Beech” (1888–1889) · Narrative adaptation: Vakhtang Imerlishvili.",
         'Project hub: <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">chargalilegacy.github.io</a> · <a href="#toc">Back to contents ↑</a>'
       ]
     },
@@ -360,24 +410,28 @@ html[lang="ar"] .totop{right:auto; left:18px}
       kicker: "قصة · ١٨٨٨–١٨٨٩ · إرث شارغالي",
       heroTitle: "الزانة اليابسة",
       heroSubtitle: "فاجا بشافيلا",
+      heroAdapter: "إعداد سردي: فاختانغ إيمرليشفيلي",
       heroLead: "في الغابة تقف شجرة واحدة، هي الأكثر وحدة والأكثر حفظاً للذاكرة. هذه القصة تتأمل فيما يبقى للإنسان حين تتراجع القوة والجمال والاسم.",
-      chips: ["١١ مشهداً", "≈ ١١ دقيقة قراءة", "KA / EN / AR", "Chargali Legacy"],
+      chips: ["١١ مشهداً", "≈ ١١ دقيقة قراءة", "KA / EN / AR", "فاختانغ إيمرليشفيلي"],
       ctaStart: "ابدأ القراءة",
       ctaToc: "الفهرس",
-      narTitle: "سردي الخاص — الزانة اليابسة كجسر للذاكرة",
-      narSub: "رؤية المؤلف · جزء من مشروع إرث شارغالي (Chargali Legacy)",
+      narTitle: "رؤية سردية — الزانة اليابسة كجسر للذاكرة",
+      narSub: "إعداد سردي: فاختانغ إيمرليشفيلي · Chargali Legacy",
       narrative: [
         "بالنسبة لي، لا تمثل «الزانة اليابسة» حزن شجرة هرمة فحسب، بل هي حكاية الذاكرة والكرامة والحياة الخفية. فحتى حين يبدو كل شيء متصدعاً في الظاهر، لا ينحني الكيان الأبيّ أمام العاصفة، ومن جذوره يولد برعم جديد.",
         "أصمم هذه الصفحة ضمن مشروعي (chargalilegacy.github.io) لكي يصل صوت فاجا بشافيلا وروح شارغالي ليس باللغة الجورجية وحدها، بل بالإنجليزية والعربية أيضاً، حيث تلتقي العزلة والصمود والذاكرة."
       ],
+      narrativeSig: "إعداد سردي: فاختانغ إيمرليشفيلي",
+      ecoTitle: "الإصدارات والمنظومة",
+      ecoSub: "الإصدارات اللغوية والصفحات المرتبطة",
       tocTitle: "الفهرس",
       tocSub: "١١ مشهداً · اضغط على العنوان للانتقال",
       poemLabel: "قصيدة",
       captionPrefix: "مشهد بصري · الزانة اليابسة",
       closingLine: "«هذا وحده عزاءُها...»",
-      closingSig: "فاجا بشافيلا · ١٨٨٨–١٨٨٩ · Chargali Legacy",
+      closingSig: "فاجا بشافيلا · إعداد سردي: فاختانغ إيمرليشفيلي · Chargali Legacy",
       footer: [
-        "النص: فاجا بشافيلا، «الزانة اليابسة» (١٨٨٨–١٨٨٩) · السرد والنسخة متعددة اللغات: إرث شارغالي (Chargali Legacy).",
+        "النص: فاجا بشافيلا، «الزانة اليابسة» (١٨٨٨–١٨٨٩) · إعداد سردي: فاختانغ إيمرليشفيلي.",
         'بوابة المشاريع: <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">chargalilegacy.github.io</a> · <a href="#toc">العودة إلى الفهرس ↑</a>'
       ]
     }
@@ -634,6 +688,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
     document.getElementById("heroKicker").textContent = t.kicker;
     document.getElementById("heroTitle").textContent = t.heroTitle;
     document.getElementById("heroSubtitle").textContent = t.heroSubtitle;
+    document.getElementById("heroAdapter").textContent = t.heroAdapter;
     document.getElementById("heroLead").textContent = t.heroLead;
     document.getElementById("ctaStart").textContent = t.ctaStart;
     document.getElementById("ctaToc").textContent = t.ctaToc;
@@ -642,7 +697,15 @@ html[lang="ar"] .totop{right:auto; left:18px}
 
     document.getElementById("narTitle").textContent = t.narTitle;
     document.getElementById("narSub").textContent = t.narSub;
-    document.getElementById("narBody").innerHTML = t.narrative.map(p => `<p>${p}</p>`).join("");
+    document.getElementById("narBody").innerHTML =
+      t.narrative.map(p => `<p>${p}</p>`).join("") +
+      `<p class="narrative-sig">${t.narrativeSig}</p>`;
+
+    document.getElementById("ecoTitle").textContent = t.ecoTitle;
+    document.getElementById("ecoSub").textContent = t.ecoSub;
+    document.getElementById("ecoGrid").innerHTML = ECO_LINKS.map(item =>
+      `<a class="eco-link" href="${item.href}" target="_blank" rel="noopener">${item.label[lang]}</a>`
+    ).join("");
 
     document.getElementById("tocTitle").textContent = t.tocTitle;
     document.getElementById("tocSub").textContent = t.tocSub;
