@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ხმელი წიფელი — ჩარგალის მემკვიდრეობა</title>
+<title>ხმელი წიფელი — ჩარგლის მემკვიდრეობა</title>
 <meta name="description" content="ვაჟა-ფშაველას „ხმელი წიფელი“ — მრავალენოვანი ნარატიული გამოცემა (KA / EN / AR) · Chargali Legacy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,15 +29,13 @@ html[lang="ar"] .subtitle,
 html[lang="ar"] .chip,
 html[lang="ar"] .cta,
 html[lang="ar"] .panel .small,
-html[lang="ar"] .age-b,
 html[lang="ar"] .toc-n,
 html[lang="ar"] .scene-h .n,
 html[lang="ar"] figcaption,
 html[lang="ar"] .poem .lbl,
 html[lang="ar"] .closing .sig,
 html[lang="ar"] footer,
-html[lang="ar"] .art::after,
-html[lang="ar"] .art .glyph,
+html[lang="ar"] .art .overlay-badge,
 html[lang="ar"] .art .bignum{
   font-family:"Noto Naskh Arabic","Noto Sans Arabic",serif;
 }
@@ -126,18 +124,6 @@ h1{font-size:clamp(34px,7vw,64px); line-height:1.12; margin:16px 0 10px; letter-
 html[lang="ar"] .narrative-box{border-left:none; border-right:4px solid var(--gold)}
 .narrative-box p{margin:0 0 10px}
 .narrative-box p:last-child{margin-bottom:0}
-
-/* age */
-.age-row{display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 12px}
-.age-b{
-  width:40px; height:36px; border-radius:8px; cursor:pointer;
-  background:var(--soft); color:var(--ink); border:1px solid var(--line);
-  font-family:"Noto Sans Georgian",sans-serif; font-size:13px; transition:.15s;
-}
-.age-b:hover{border-color:var(--gold)}
-.age-b[aria-pressed="true"]{background:var(--forest2); color:#f2ecdb; border-color:var(--forest2)}
-.age-note{display:flex; gap:12px; align-items:flex-start; background:var(--soft); border-radius:10px; padding:12px 14px; font-size:.9em}
-.age-note .dot{margin-top:.55em; width:8px; height:8px; border-radius:50%; background:var(--gold); flex:none}
 
 /* toc */
 .toc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; margin-top:14px}
@@ -267,20 +253,13 @@ html[lang="ar"] .totop{right:auto; left:18px}
 
 <main class="wrap">
 
-  <section class="panel reveal" id="narrative">
+  <section class="panel reveal in" id="narrative">
     <h2 id="narTitle">ჩემი ნარატივი — ხმელი წიფელი როგორც მეხსიერების ხიდი</h2>
     <p class="small" id="narSub">საავტორო ხედვა · Chargali Legacy პროექტის ნაწილი</p>
     <div class="narrative-box" id="narBody"></div>
   </section>
 
-  <section class="panel reveal" id="age">
-    <h2 id="ageTitle">ასაკობრივი შეფასება</h2>
-    <p class="small" id="ageSub">აირჩიე ასაკი — და ნახე, როგორ იკითხება ეს ტექსტი ამ ასაკში.</p>
-    <div class="age-row" id="ageRow" role="group" aria-label="Age selection"></div>
-    <div class="age-note"><span class="dot"></span><span id="ageNote"></span></div>
-  </section>
-
-  <section class="panel reveal" id="toc">
+  <section class="panel reveal in" id="toc">
     <h2 id="tocTitle">სარჩევი</h2>
     <p class="small" id="tocSub">11 სცენა · დააჭირე სათაურს გადასვლისთვის</p>
     <nav class="toc-grid" id="tocGrid"></nav>
@@ -288,7 +267,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
 
   <div id="contentRoot"></div>
 
-  <section class="closing reveal">
+  <section class="closing reveal in">
     <p class="line" id="closingLine">„ესღაა იმისი ნუგეში...“</p>
     <p class="sig" id="closingSig">ვაჟა-ფშაველა · 1888–1889 · Chargali Legacy</p>
   </section>
@@ -303,7 +282,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
 (function(){
   "use strict";
 
-  const PHOTO_SRC = "1000033271.jpg";
+  const PHOTO_SRC = "file_1795345836708.jpg";
 
   const UI = {
     ka: {
@@ -318,7 +297,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
       heroTitle: "ხმელი წიფელი",
       heroSubtitle: "ვაჟა-ფშაველა",
       heroLead: "ტყეში ერთი ხეა, რომელიც ყველაზე მარტო დგას — და ყველაზე მეტს იმახსოვრებს. ეს ამბავი იმაზეა, რა რჩება ადამიანს, როცა ძალა, სილამაზე და სახელი წარსულს რჩება.",
-      chips: ["11 სცენა", "≈ 11 წთ კითხვა", "ზოგადი ასაკი 10–18", "ოპტიმალური 13–16"],
+      chips: ["11 სცენა", "≈ 11 წთ კითხვა", "KA / EN / AR", "Chargali Legacy"],
       ctaStart: "კითხვის დაწყება",
       ctaToc: "სარჩევი",
       narTitle: "ჩემი ნარატივი — ხმელი წიფელი როგორც მეხსიერების ხიდი",
@@ -326,17 +305,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
       narrative: [
         "ჩემთვის „ხმელი წიფელი“ მხოლოდ მოხუცი ხის მწუხარება არ არის — ეს არის ხსოვნის, ღირსებისა და ფარული სიცოცხლის ამბავი. მაშინაც კი, როცა გარეგნულად ყველაფერი დამსხვრეული და დამდნარი ჩანს, ღირსეული არსება არ იხრება ქარის წინაშე და მის ფესვებში მაინც იბადება ახალი ყლორტი.",
         "ამ სივრცეს ვქმნი როგორც ნაწილს ჩემი პროექტისა (chargalilegacy.github.io), რათა ვაჟა-ფშაველას ხმა და ჩარგლის სული ჟღერდეს არა მხოლოდ ქართულად, არამედ ინგლისურადაც და არაბულადაც — იქ, სადაც მარტოობის, სიმტკიცისა და მეხსიერების ენა ყველასთვის გასაგებია."
-      ],
-      ageTitle: "ასაკობრივი შეფასება",
-      ageSub: "აირჩიე ასაკი — და ნახე, როგორ იკითხება ეს ტექსტი ამ ასაკში.",
-      ageDefault: "ზოგადი ასაკი: 10–18 · ოპტიმალური: 13–16. ტექსტი გრძელი წინადადებებითა და ძველი ფორმებითაა დაწერილი — ღირს ხმამაღლა კითხვა.",
-      ageYearSuffix: "წელი",
-      ageNotes: [
-        {to:7,  t:"ამ ასაკში ტექსტი რთულია: გრძელი წინადადებები, ძველი ფორმები და მეტაფორები. უკეთესია ხმამაღლა კითხვა ან გამარტივებული გადმოცემა ზრდასრულის მიერ."},
-        {to:9,  t:"წაკითხვა შესაძლებელია მხოლოდ ხმამაღლა, უფროსის დახმარებით. მთავარი გმირი ხეა — ეს ბავშვს აზროვნების გადატანას ასწავლის."},
-        {to:12, t:"ზოგადი ასაკი: იწყება დამოუკიდებელი კითხვა. ლექსი უკვე ემოციურად მუშაობს, სოციალური ფონი კი ნაწილობრივ იკითხება."},
-        {to:16, t:"ოპტიმალური ასაკი: სრულად იკითხება ტექსტის ირონია, მარტოობის თემა, სოციალური კრიტიკა და პოეტური ფორმა."},
-        {to:18, t:"სრულფასოვანი ლიტერატურული კითხვა: შესაძლებელია კომპოზიციის, სიმბოლიკისა და ვაჟას სტილის ანალიზი."}
       ],
       tocTitle: "სარჩევი",
       tocSub: "11 სცენა · დააჭირე სათაურს გადასვლისთვის",
@@ -361,7 +329,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
       heroTitle: "The Withered Beech",
       heroSubtitle: "Vazha-Pshavela",
       heroLead: "In the forest stands a single tree—most alone, yet holding the deepest memory. This story asks what remains when strength, beauty, and name fall behind.",
-      chips: ["11 Scenes", "≈ 11 min read", "General age 10–18", "Optimal 13–16"],
+      chips: ["11 Scenes", "≈ 11 min read", "KA / EN / AR", "Chargali Legacy"],
       ctaStart: "Start Reading",
       ctaToc: "Contents",
       narTitle: "My Narrative — The Withered Beech as a Bridge of Memory",
@@ -369,17 +337,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
       narrative: [
         "For me, “The Withered Beech” is more than an old tree’s sorrow—it is a meditation on memory, dignity, and quiet endurance. Even when everything appears broken or weathered, an unbowed spirit does not bend before the gale, and a tender shoot still rises from its roots.",
         "I am shaping this edition as part of my work at chargalilegacy.github.io so Vazha-Pshavela’s voice and the spirit of Chargali speak not only in Georgian, but also in English and Arabic—where solitude, resilience, and memory resonate universally."
-      ],
-      ageTitle: "Age & Reading Guide",
-      ageSub: "Choose an age to see how the text reads at that stage.",
-      ageDefault: "General age: 10–18 · Optimal: 13–16. Rich syntax and older idioms reward reading aloud.",
-      ageYearSuffix: "yrs",
-      ageNotes: [
-        {to:7,  t:"Challenging at this age due to long clauses, older forms, and metaphors. Best read aloud or retold simply by an adult."},
-        {to:9,  t:"Best experienced aloud with a grown-up. Having a tree as the central figure encourages empathy and imaginative projection."},
-        {to:12, t:"General reading age: independent reading begins. The verse resonates emotionally while social nuances emerge gradually."},
-        {to:16, t:"Optimal age: irony, solitude, social critique, and poetic structure come into full focus."},
-        {to:18, t:"Full literary reading: ideal for analyzing composition, symbolism, and Vazha-Pshavela’s voice."}
       ],
       tocTitle: "Table of Contents",
       tocSub: "11 scenes · Select a title to jump directly",
@@ -404,7 +361,7 @@ html[lang="ar"] .totop{right:auto; left:18px}
       heroTitle: "الزانة اليابسة",
       heroSubtitle: "فاجا بشافيلا",
       heroLead: "في الغابة تقف شجرة واحدة، هي الأكثر وحدة والأكثر حفظاً للذاكرة. هذه القصة تتأمل فيما يبقى للإنسان حين تتراجع القوة والجمال والاسم.",
-      chips: ["١١ مشهداً", "≈ ١١ دقيقة قراءة", "العمر العام ١٠–١٨", "الأنسب ١٣–١٦"],
+      chips: ["١١ مشهداً", "≈ ١١ دقيقة قراءة", "KA / EN / AR", "Chargali Legacy"],
       ctaStart: "ابدأ القراءة",
       ctaToc: "الفهرس",
       narTitle: "سردي الخاص — الزانة اليابسة كجسر للذاكرة",
@@ -412,17 +369,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
       narrative: [
         "بالنسبة لي، لا تمثل «الزانة اليابسة» حزن شجرة هرمة فحسب، بل هي حكاية الذاكرة والكرامة والحياة الخفية. فحتى حين يبدو كل شيء متصدعاً في الظاهر، لا ينحني الكيان الأبيّ أمام العاصفة، ومن جذوره يولد برعم جديد.",
         "أصمم هذه الصفحة ضمن مشروعي (chargalilegacy.github.io) لكي يصل صوت فاجا بشافيلا وروح شارغالي ليس باللغة الجورجية وحدها، بل بالإنجليزية والعربية أيضاً، حيث تلتقي العزلة والصمود والذاكرة."
-      ],
-      ageTitle: "التقدير العمري للقراءة",
-      ageSub: "اختر عمراً لترى كيف تُقرأ هذه القصة في تلك المرحلة.",
-      ageDefault: "العمر العام: ١٠–١٨ · الأنسب: ١٣–١٦. الجمل الطويلة والصيغ التراثية تجعل القراءة بصوتٍ مرتفع تجربة ثرية.",
-      ageYearSuffix: "سنة",
-      ageNotes: [
-        {to:7,  t:"النص صعب في هذا العمر بسبب الجمل الطويلة والاستعارات؛ يُستحسن قراءته بصوت مرتفع أو تبسيطه مع بالغ."},
-        {to:9,  t:"مناسب للقراءة المسموعة بمساعدة كبير؛ كون البطل شجرة يساعد الطفل على تنمية الخيال والتعاطف."},
-        {to:12, t:"عمر مناسب لبداية القراءة المستقلة؛ يلامس الشعر الوجدان بينما تتضح الأبعاد الاجتماعية تدريجياً."},
-        {to:16, t:"العمر الأنسب؛ تتضح فيه السخرية والوحدة والنقد الاجتماعي والبنية الشعرية للنص."},
-        {to:18, t:"قراءة أدبية متكاملة تتيح تحليل البناء والرمزية وأسلوب فاجا بشافيلا."}
       ],
       tocTitle: "الفهرس",
       tocSub: "١١ مشهداً · اضغط على العنوان للانتقال",
@@ -698,17 +644,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
     document.getElementById("narSub").textContent = t.narSub;
     document.getElementById("narBody").innerHTML = t.narrative.map(p => `<p>${p}</p>`).join("");
 
-    document.getElementById("ageTitle").textContent = t.ageTitle;
-    document.getElementById("ageSub").textContent = t.ageSub;
-    const pressedAge = document.querySelector(".age-b[aria-pressed='true']");
-    if (!pressedAge) {
-      document.getElementById("ageNote").textContent = t.ageDefault;
-    } else {
-      const n = Number(pressedAge.textContent);
-      const item = t.ageNotes.find(o => n <= o.to) || t.ageNotes[t.ageNotes.length - 1];
-      document.getElementById("ageNote").textContent = `${n} ${t.ageYearSuffix} — ${item.t}`;
-    }
-
     document.getElementById("tocTitle").textContent = t.tocTitle;
     document.getElementById("tocSub").textContent = t.tocSub;
     document.getElementById("tocGrid").innerHTML = SCENES.map(s =>
@@ -772,7 +707,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
     document.querySelectorAll(".scene, .poem").forEach(el => so.observe(el));
   }
 
-  /* Language buttons */
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       lang = btn.dataset.lang;
@@ -781,7 +715,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
     });
   });
 
-  /* Scroll & Top */
   const prog = document.getElementById("prog");
   const totop = document.getElementById("totop");
   function onScroll(){
@@ -794,7 +727,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
   onScroll();
   totop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  /* Font size */
   document.getElementById("fsUp").addEventListener("click", () => {
     curFont = Math.min(fontSteps.length - 1, curFont + 1);
     doc.style.setProperty("--fs", fontSteps[curFont]);
@@ -804,7 +736,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
     doc.style.setProperty("--fs", fontSteps[curFont]);
   });
 
-  /* Theme */
   const themeBtn = document.getElementById("theme");
   themeBtn.addEventListener("click", () => {
     const night = doc.getAttribute("data-theme") === "night";
@@ -817,24 +748,6 @@ html[lang="ar"] .totop{right:auto; left:18px}
       themeBtn.textContent = t.themeDay;
     }
   });
-
-  /* Age buttons */
-  const ageRow = document.getElementById("ageRow");
-  for (let a = 3; a <= 18; a++) {
-    const b = document.createElement("button");
-    b.className = "age-b";
-    b.type = "button";
-    b.textContent = String(a);
-    b.setAttribute("aria-pressed", "false");
-    b.addEventListener("click", () => {
-      ageRow.querySelectorAll(".age-b").forEach(x => x.setAttribute("aria-pressed", "false"));
-      b.setAttribute("aria-pressed", "true");
-      const t = UI[lang];
-      const item = t.ageNotes.find(o => a <= o.to) || t.ageNotes[t.ageNotes.length - 1];
-      document.getElementById("ageNote").textContent = `${a} ${t.ageYearSuffix} — ${item.t}`;
-    });
-    ageRow.appendChild(b);
-  }
 
   renderAll();
 })();
